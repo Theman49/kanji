@@ -75,7 +75,7 @@
 
   </div>
 
-  <h1>{{ totalWord }}</h1>
+  <h1 data="" onclick="toggleBlur(this)">{{ totalWord }}</h1>
   {% include 'comp-search.html' %}
 
   <div class="row">
@@ -155,6 +155,18 @@
 <div id="tooltip" style="position: absolute; display: none;"><div class="arrow" style=""></div><div class="content"></div></div>
 
     <script>
+        function toggleBlur(e){
+          const meaningEls = document.querySelectorAll('.furigana')
+          console.log(e)
+          if(e.getAttribute('data') === 'blur'){
+            meaningEls.forEach((item) => item.style.filter = 'blur(0px)')
+            e.setAttribute('data', '')
+          }else{
+            meaningEls.forEach((item) => item.style.filter = 'blur(10px)')
+            e.setAttribute('data', 'blur')
+          }
+        }
+
         function removeEl(data){
             data.forEach((item) => item.remove());
         }
