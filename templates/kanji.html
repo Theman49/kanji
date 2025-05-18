@@ -57,11 +57,10 @@
   </head>
   <body class=" highlight_keyword highlight_common_readings highlight_common_representations production">
    
-      <h3 style="text-align: center">Kanji JLPT {{ level }}</h3>
+      <h3 style="text-align: center" data="" onclick="toggleBlur(this)">Kanji JLPT {{ level }}</h3>
       <div class="row">
         {% include 'comp-search.html' %}
       </div>
-
 
     {% include content %}
 
@@ -127,6 +126,18 @@
 </script>
 
   <script>
+    function toggleBlur(e){
+      const meaningEls = document.querySelectorAll('.meanings.english.sense')
+      console.log(e)
+      if(e.getAttribute('data') === 'blur'){
+        meaningEls.forEach((item) => item.style.filter = 'blur(0px)')
+        e.setAttribute('data', '')
+      }else{
+        meaningEls.forEach((item) => item.style.filter = 'blur(10px)')
+        e.setAttribute('data', 'blur')
+      }
+    }
+
     function removeEl(data){
       data.forEach((item) => item.remove());
     }
