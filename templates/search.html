@@ -22,14 +22,18 @@
 
     <link rel="stylesheet" media="screen" href="https://assets.jisho.org/assets/application-61d8e80944056be2e8c772e3d3b243767cc3550ca5b7da4d62ba58a5604fc3c3.css">
     
-    <title>containing {{search}}</title>
+    <title>Search {{search}}</title>
   <style></style>
 
     <style>
         #page_container, .row {
             max-width: 80rem !important;
         }
-        .concepts {
+        #primary {
+          width: 100%;
+        }
+        #primary .concepts, 
+        #primary .exact_block {
             width: 100% !important;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));

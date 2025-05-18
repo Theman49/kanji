@@ -137,7 +137,7 @@
         els.forEach((item) => {
             item.addEventListener('click', function(e) {
                 const content = e.target.querySelector('.literal_block').innerText
-                document.location.href = "/search/" + content + '/page=1'
+                document.location.href = "/search/*" + content + '*/page=1'
             })
         })
     }

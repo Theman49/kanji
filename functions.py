@@ -24,11 +24,10 @@ def jlptPerLevel():
 		f.write(str(result))
 
 def search(value, page=1):
-	genUrl = 'https://jisho.org/search/*' + str(value) + '*%20%20%23words?page=' + str(page)
+	genUrl = 'https://jisho.org/search/' + str(value) + '%20%23words?page=' + str(page)
 	print(genUrl)
 	r = requests.get(genUrl)
 	soup = BeautifulSoup(r.content, 'html.parser')
-	temp = soup.find('div', {'id':'primary'})
-	content = soup.find('div', {'class':'concepts'})
+	content = soup.find('div', {'id':'primary'})
 
 	return content
