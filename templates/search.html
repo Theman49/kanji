@@ -1,0 +1,165 @@
+<html data-color-theme="auto" class=" js no-touch speech audiocontext no-getusermedia" style=""><head><meta class="foundation-mq-small"><meta class="foundation-mq-small-only"><meta class="foundation-mq-medium"><meta class="foundation-mq-medium-only"><meta class="foundation-mq-large"><meta class="foundation-mq-large-only"><meta class="foundation-mq-xlarge"><meta class="foundation-mq-xlarge-only"><meta class="foundation-mq-xxlarge"><meta class="foundation-data-attribute-namespace">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="theme-color" content="#47DB27">
+   
+<script>
+
+  Modernizr.addTest('speech', function(){
+    return Modernizr.prefixed('speechRecognition', window);
+  });
+
+  Modernizr.addTest('AudioContext', function(){
+    return Modernizr.prefixed('AudioContext', window);
+  });
+
+  Modernizr.addTest('getUserMedia', function(){
+    return Modernizr.prefixed('getUserMedia', navigator);
+  });
+
+</script>
+
+    <link rel="stylesheet" media="screen" href="https://assets.jisho.org/assets/application-61d8e80944056be2e8c772e3d3b243767cc3550ca5b7da4d62ba58a5604fc3c3.css">
+    
+    <title>containing {{search}}</title>
+  <style></style>
+
+    <style>
+        #page_container, .row {
+            max-width: 80rem !important;
+        }
+        .concepts {
+            width: 100% !important;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        }
+        .concept_light.clearfix {
+            display: flex;
+            flex-direction: column;
+        }
+        .concept_light-wrapper.columns.zero-padding {
+            width: 100%;
+        }
+
+        .concept_light.clearfix {
+          border: 0px;
+          border-radius: 10px;
+          padding: 10px;
+          margin: 0px;
+          margin-bottom: 5px;
+        }
+
+        .concept_light.clearfix:nth-child(even){
+            background-color: #3d3d3d;
+        }
+      </style>
+
+</head>
+  <body class="highlight_keyword highlight_common_readings highlight_common_representations production">
+
+    <div id="page_container" class="row">
+      <div class="large-12 columns">
+        
+        
+
+<div id="main_results">
+  <div id="result_area">
+
+
+
+
+  </div>
+
+  <h1>{{ totalWord }}</h1>
+  {% include 'comp-search.html' %}
+
+  <div class="row">
+
+    {{ result|safe }}
+ 
+  </div>
+</div>
+
+      </div>
+    </div>
+
+     
+    <script type="text/javascript" charset="utf-8">
+    var currentUser = null;
+
+</script>
+
+<script src="https://assets.jisho.org/assets/application-fe07b0b8ade93cbea5bf2f513ab5d59be67f0c111905dbeabfb88aa48c81e88e.js"></script>
+
+  <style type="text/css" media="screen">
+    .debug { display: none; }
+  </style>
+
+
+
+    <script>
+
+  (function() {
+
+   Namespace('Jisho.KeyEvents', {});
+     var body = $(document.body);
+
+     function applyBodyClass(keyEvent, on) {
+       body.toggleClass(getClassForEvent(keyEvent), on !== (keyEvent.type == 'display'));
+     }
+
+     function getClassForEvent(keyEvent) {
+       return (keyEvent.type == 'display' ? 'hide' : 'highlight') + '_' + keyEvent.name;
+     }
+
+     body.keydown(function(e) {
+       var events = Jisho.KeyEvents[e.which];
+       if(events) {
+         events.each(function(keyEvent) {
+           if(keyEvent.active) return;
+           keyEvent.active = true;
+           if(keyEvent.phase == 'toggle') {
+             body.toggleClass(getClassForEvent(keyEvent));
+           } else {
+             applyBodyClass(keyEvent, true);
+           }
+         });
+       }
+     });
+
+     body.keyup(function(e) {
+       var events = Jisho.KeyEvents[e.which];
+       if(events) {
+         events.each(function(keyEvent) {
+           keyEvent.active = false;
+           if(keyEvent.phase !== 'toggle') {
+             applyBodyClass(keyEvent, false);
+           }
+         });
+       }
+     });
+
+
+  })();
+
+</script>
+
+
+  
+
+<div id="tooltip" style="position: absolute; display: none;"><div class="arrow" style=""></div><div class="content"></div></div>
+
+    <script>
+        function removeEl(data){
+            data.forEach((item) => item.remove());
+        }
+        const hforEl = document.querySelectorAll('h4');
+        const links = document.querySelectorAll('.concept_light-status a')
+        removeEl(hforEl)
+        removeEl(links)
+
+
+    </script>
+
+</body></html>

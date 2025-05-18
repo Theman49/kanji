@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+            body {
+                background: #333;
+            } 
+            #kanji-list {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+                font-size: 20px;
+            }
+            ul {
+                padding: 0px;
+            }
+            li {
+                margin-bottom: 10px;
+                list-style: none;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid white;
+            }
+            li:hover {
+                transition: all ease .5s;
+                transform: scale(1.3);
+            }
+        </style>
+    </head>
+    <body>
+    <div id="kanji-list">
+        <ul>
+            <li><a href="/kanji/n5">Kanji N5</a></li>
+            <li><a href="/kanji/n4">Kanji N4</a></li>
+            <li><a href="/kanji/n3">Kanji N3</a></li>
+            <li><a href="/kanji/n2">Kanji N2</a></li>
+            <li><a href="/kanji/n1">Kanji N1</a></li>
+            {% include 'comp-search.html' %}
+        </ul>
+    </div>
+    <p style="width: 100%; text-align: center; color: white;">Thanks to Jisho.org, please check <a href="https://jisho.org">here to see</a></p>
+    </body>
+    </html>

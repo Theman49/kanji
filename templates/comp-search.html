@@ -1,0 +1,27 @@
+<div>
+    <input name="search" id="search" placeholder="search here ..." onchange="find(this)"/>
+
+    <script>
+        function find(e){
+            const strValue = e.value
+            let contents = [];
+            const temp = document.querySelectorAll('.entry.kanji_light.clearfix')
+            if(temp.length > 0){
+                // for search kanji
+                contents = temp;
+                contents.forEach((item) => {
+                    if(!item.innerText.includes(strValue) && strValue !== ''){
+                        item.style.display = 'none'
+                    }else{
+                        item.style.display = ''
+                    }
+                })
+            }else{
+                // search word
+                document.location.href = `/search/${strValue}/page=1`
+            }
+
+
+        }
+    </script>
+</div>

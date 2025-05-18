@@ -1,0 +1,2830 @@
+<!DOCTYPE html>
+<html data-color-theme="auto">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="apple-mobile-web-app-title" content="Jisho">
+    <meta name="theme-color" content="#47DB27">
+    <link href="/opensearch.xml" rel='search' title='Jisho' type='application/opensearchdescription+xml'>
+    <link rel="icon" href="https://assets.jisho.org/assets/touch-icon-017b99ca4bfd11363a97f66cc4c00b1667613a05e38d08d858aa5e2a35dce055.png">
+    <link rel="apple-touch-icon" href="https://assets.jisho.org/assets/touch-icon-017b99ca4bfd11363a97f66cc4c00b1667613a05e38d08d858aa5e2a35dce055.png">
+    <script>
+
+/* Modernizr 2.6.2 (Custom Build) | MIT & BSD
+ * Build: http://modernizr.com/download/#-touch-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-prefixes-domprefixes
+ */
+;window.Modernizr=function(a,b,c){function z(a){j.cssText=a}function A(a,b){return z(m.join(a+";")+(b||""))}function B(a,b){return typeof a===b}function C(a,b){return!!~(""+a).indexOf(b)}function D(a,b){for(var d in a){var e=a[d];if(!C(e,"-")&&j[e]!==c)return b=="pfx"?e:!0}return!1}function E(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:B(f,"function")?f.bind(d||b):f}return!1}function F(a,b,c){var d=a.charAt(0).toUpperCase()+a.slice(1),e=(a+" "+o.join(d+" ")+d).split(" ");return B(b,"string")||B(b,"undefined")?D(e,b):(e=(a+" "+p.join(d+" ")+d).split(" "),E(e,b,c))}var d="2.6.2",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m=" -webkit- -moz- -o- -ms- ".split(" "),n="Webkit Moz O ms",o=n.split(" "),p=n.toLowerCase().split(" "),q={},r={},s={},t=[],u=t.slice,v,w=function(a,c,d,e){var f,i,j,k,l=b.createElement("div"),m=b.body,n=m||b.createElement("body");if(parseInt(d,10))while(d--)j=b.createElement("div"),j.id=e?e[d]:h+(d+1),l.appendChild(j);return f=["&#173;",'<style id="s',h,'">',a,"</style>"].join(""),l.id=h,(m?l:n).innerHTML+=f,n.appendChild(l),m||(n.style.background="",n.style.overflow="hidden",k=g.style.overflow,g.style.overflow="hidden",g.appendChild(n)),i=c(l,a),m?l.parentNode.removeChild(l):(n.parentNode.removeChild(n),g.style.overflow=k),!!i},x={}.hasOwnProperty,y;!B(x,"undefined")&&!B(x.call,"undefined")?y=function(a,b){return x.call(a,b)}:y=function(a,b){return b in a&&B(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=u.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(u.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(u.call(arguments)))};return e}),q.touch=function(){var c;return"ontouchstart"in a||a.DocumentTouch&&b instanceof DocumentTouch?c=!0:w(["@media (",m.join("touch-enabled),("),h,")","{#modernizr{top:9px;position:absolute}}"].join(""),function(a){c=a.offsetTop===9}),c};for(var G in q)y(q,G)&&(v=G.toLowerCase(),e[v]=q[G](),t.push((e[v]?"":"no-")+v));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)y(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},z(""),i=k=null,e._version=d,e._prefixes=m,e._domPrefixes=p,e._cssomPrefixes=o,e.testProp=function(a){return D([a])},e.testAllProps=F,e.testStyles=w,e.prefixed=function(a,b,c){return b?F(a,b,c):F(a,"pfx")},g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+t.join(" "):""),e}(this,this.document);
+
+</script>
+
+<script>
+
+  Modernizr.addTest('speech', function(){
+    return Modernizr.prefixed('speechRecognition', window);
+  });
+
+  Modernizr.addTest('AudioContext', function(){
+    return Modernizr.prefixed('AudioContext', window);
+  });
+
+  Modernizr.addTest('getUserMedia', function(){
+    return Modernizr.prefixed('getUserMedia', navigator);
+  });
+
+</script>
+
+    <link rel="stylesheet" media="screen" href="https://assets.jisho.org/assets/application-61d8e80944056be2e8c772e3d3b243767cc3550ca5b7da4d62ba58a5604fc3c3.css" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="1YY8K0Dd9RYyjyJn4xFPHhYDTcEaxq0GijEV7YfgPt01OFjRnORV3tSfYZTz2SbOwK2YOxrno6MM8cnzA6g0Qw==" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://assets.jisho.org/assets/favicon-062c4a0240e1e6d72c38aa524742c2d558ee6234497d91dd6b75a182ea823d65.ico" />
+    <title>Kanji JLPT N5</title>
+    <meta name="Description" content="Japanese dictionary search results for #kanji #jlpt-n3.">
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@jisho" />
+      <meta name="twitter:title" content="Japanese kanji search for &quot;#kanji #jlpt-n3&quot;" />
+      <meta name="twitter:description" content="367 kanji found. See the full details ..." />
+      <style>
+        .kanji_light_block {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          margin: 0px;
+        }
+
+        .entry.kanji_light.clearfix {
+          border: 0px;
+          border-radius: 10px;
+          padding: 10px;
+          margin: 0px;
+        }
+
+        .entry.kanji_light.clearfix:nth-child(even) {
+          background-color: #3d3d3d;
+        }
+      </style>
+  </head>
+  <body class=" highlight_keyword highlight_common_readings highlight_common_representations production">
+   
+      <h3 style="text-align: center">Kanji JLPT N5</h3>
+    <div id="inflection_modal" class="reveal-modal small" data-reveal>
+      <div class="modal_content"></div>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div class="row" id="page_container">
+        <div class="large-12 columns">
+        <div id="main_results">
+        <div id="result_area">
+        </div>
+        <div class="row">
+        <div class="large-12 columns search-secondary_column" id="secondary">
+        <div class="kanji_light_block">
+        <h4>Kanji<span class="result_count"> — 79 found</span></h4>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.0029079277379957112<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%97%A5%20%23kanji">日</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>day, </span>
+        <span>sun, </span>
+        <span>Japan, </span>
+        <span>counter for days</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%97%A5%20%E3%81%B2">ひ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%97%A5%20%E3%81%B3">-び</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%97%A5%20%E3%81%8B">-か</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%97%A5%20%E3%81%AB%E3%81%A1">ニチ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%97%A5%20%E3%81%98%E3%81%A4">ジツ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%97%A5%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.0058158554759914225<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">1 stroke.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%B8%80%20%23kanji">一</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>one, </span>
+        <span>one radical (no.1)</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%80%20%E3%81%B2%E3%81%A8">ひと-</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%80%20%E3%81%B2%E3%81%A8%E3%81%A4">ひと.つ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%80%20%E3%81%84%E3%81%A1">イチ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%80%20%E3%81%84%E3%81%A4">イツ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%B8%80%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.014539638689978554<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">2 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%BA%BA%20%23kanji">人</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>person</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%BA%20%E3%81%B2%E3%81%A8">ひと</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%BA%20%E3%82%8A">-り</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%BA%20%E3%81%A8">-と</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%BA%20%E3%81%98%E3%82%93">ジン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%BA%20%E3%81%AB%E3%82%93">ニン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%BA%BA%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.017447566427974265<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">8 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%9B%BD%20%23kanji">国</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>country</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%9B%BD%20%E3%81%8F%E3%81%AB">くに</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%9B%BD%20%E3%81%93%E3%81%8F">コク</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%9B%BD%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.017447566427974265<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">6 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%B9%B4%20%23kanji">年</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>year, </span>
+        <span>counter for years</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B9%B4%20%E3%81%A8%E3%81%97">とし</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B9%B4%20%E3%81%AD%E3%82%93">ネン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%B9%B4%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.020355494165969976<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%A4%A7%20%23kanji">大</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>large, </span>
+        <span>big</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%A7%20%E3%81%8A%E3%81%8A">おお-</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%A7%20%E3%81%8A%E3%81%8A%E3%81%8D%E3%81%84">おお.きい</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%A7%20%E3%81%8A%E3%81%8A%E3%81%84%E3%81%AB">-おお.いに</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%A7%20%E3%81%A0%E3%81%84">ダイ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%A7%20%E3%81%9F%E3%81%84">タイ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%A4%A7%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.02326342190396569<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">2 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%8D%81%20%23kanji">十</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>ten</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%81%20%E3%81%A8%E3%81%8A">とお</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%81%20%E3%81%A8">と</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%81%20%E3%81%9D">そ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%81%20%E3%81%98%E3%82%85%E3%81%86">ジュウ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%81%20%E3%81%98%E3%81%A3">ジッ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%81%20%E3%81%98%E3%82%85%E3%81%A3">ジュッ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%8D%81%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.026171349641961397<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">2 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%BA%8C%20%23kanji">二</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>two, </span>
+        <span>two radical (no. 7)</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%8C%20%E3%81%B5%E3%81%9F">ふた</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%8C%20%E3%81%B5%E3%81%9F%E3%81%A4">ふた.つ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%8C%20%E3%81%B5%E3%81%9F%E3%81%9F%E3%81%B3">ふたたび</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%8C%20%E3%81%AB">ニ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%8C%20%E3%81%98">ジ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%BA%8C%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.029079277379957108<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%9C%AC%20%23kanji">本</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>book, </span>
+        <span>present, </span>
+        <span>main, </span>
+        <span>origin, </span>
+        <span>true, </span>
+        <span>real, </span>
+        <span>counter for long cylindrical things</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9C%AC%20%E3%82%82%E3%81%A8">もと</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9C%AC%20%E3%81%BB%E3%82%93">ホン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%9C%AC%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.031987205117952826<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%B8%AD%20%23kanji">中</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>in, </span>
+        <span>inside, </span>
+        <span>middle, </span>
+        <span>mean, </span>
+        <span>center</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%AD%20%E3%81%AA%E3%81%8B">なか</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%AD%20%E3%81%86%E3%81%A1">うち</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%AD%20%E3%81%82%E3%81%9F%E3%82%8B">あた.る</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%AD%20%E3%81%A1%E3%82%85%E3%81%86">チュウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%B8%AD%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.03780306059394425<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%87%BA%20%23kanji">出</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>exit, </span>
+        <span>leave, </span>
+        <span>go out, </span>
+        <span>come out, </span>
+        <span>put out, </span>
+        <span>protrude</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%87%BA%20%E3%81%A7%E3%82%8B">で.る</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%87%BA%20%E3%81%A7">-で</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%87%BA%20%E3%81%A0%E3%81%99">だ.す</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%87%BA%20%E3%81%A0%E3%81%99">-だ.す</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%87%BA%20%E3%81%84%E3%81%A7%E3%82%8B">い.でる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%87%BA%20%E3%81%84%E3%81%A0%E3%81%99">い.だす</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%87%BA%20%E3%81%97%E3%82%85%E3%81%A4">シュツ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%87%BA%20%E3%81%99%E3%81%84">スイ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%87%BA%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.04071098833193995<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%B8%89%20%23kanji">三</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>three</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%89%20%E3%81%BF">み</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%89%20%E3%81%BF%E3%81%A4">み.つ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%89%20%E3%81%BF%E3%81%A3%E3%81%A4">みっ.つ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%89%20%E3%81%95%E3%82%93">サン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%89%20%E3%81%9E%E3%81%86">ゾウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%B8%89%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.06397441023590565<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">7 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E8%A6%8B%20%23kanji">見</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>see, </span>
+        <span>hopes, </span>
+        <span>chances, </span>
+        <span>idea, </span>
+        <span>opinion, </span>
+        <span>look at, </span>
+        <span>visible</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A6%8B%20%E3%81%BF%E3%82%8B">み.る</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A6%8B%20%E3%81%BF%E3%81%88%E3%82%8B">み.える</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A6%8B%20%E3%81%BF%E3%81%9B%E3%82%8B">み.せる</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A6%8B%20%E3%81%91%E3%82%93">ケン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E8%A6%8B%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.06688233797390135<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%9C%88%20%23kanji">月</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>month, </span>
+        <span>moon</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9C%88%20%E3%81%A4%E3%81%8D">つき</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9C%88%20%E3%81%92%E3%81%A4">ゲツ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9C%88%20%E3%81%8C%E3%81%A4">ガツ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%9C%88%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.06979026571189706<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">8 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E9%95%B7%20%23kanji">長</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>long, </span>
+        <span>leader, </span>
+        <span>superior, </span>
+        <span>senior</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%95%B7%20%E3%81%AA%E3%81%8C%E3%81%84">なが.い</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%95%B7%20%E3%81%8A%E3%81%95">おさ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%95%B7%20%E3%81%A1%E3%82%87%E3%81%86">チョウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E9%95%B7%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.08432990440187563<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E7%94%9F%20%23kanji">生</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>life, </span>
+        <span>genuine, </span>
+        <span>birth</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%84%E3%81%8D%E3%82%8B">い.きる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%84%E3%81%8B%E3%81%99">い.かす</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%84%E3%81%91%E3%82%8B">い.ける</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%86%E3%81%BE%E3%82%8C%E3%82%8B">う.まれる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%86%E3%81%BE%E3%82%8C%E3%82%8B">うま.れる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%86%E3%81%BE%E3%82%8C">う.まれ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%86%E3%81%BE%E3%82%8C">うまれ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%86%E3%82%80">う.む</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%8A%E3%81%86">お.う</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%AF%E3%81%88%E3%82%8B">は.える</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%AF%E3%82%84%E3%81%99">は.やす</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%8D">き</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%AA%E3%81%BE">なま</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%AA%E3%81%BE">なま-</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%AA%E3%82%8B">な.る</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%AA%E3%81%99">な.す</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%82%80%E3%81%99">む.す</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%86">-う</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%9B%E3%81%84">セイ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%9F%20%E3%81%97%E3%82%87%E3%81%86">ショウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E7%94%9F%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.09014575987786703<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%BA%94%20%23kanji">五</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>five</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%94%20%E3%81%84%E3%81%A4">いつ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%94%20%E3%81%84%E3%81%A4%E3%81%A4">いつ.つ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BA%94%20%E3%81%94">ゴ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%BA%94%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.09305368761586276<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">10 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%99%82%20%23kanji">時</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>time, </span>
+        <span>hour</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%99%82%20%E3%81%A8%E3%81%8D">とき</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%99%82%20%E3%81%A9%E3%81%8D">-どき</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%99%82%20%E3%81%98">ジ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%99%82%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.10177747082984988<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%B8%8A%20%23kanji">上</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>above, </span>
+        <span>up</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%86%E3%81%88">うえ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%86%E3%81%88">-うえ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%86%E3%82%8F">うわ-</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%8B%E3%81%BF">かみ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%82%E3%81%92%E3%82%8B">あ.げる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%82%E3%81%92%E3%82%8B">-あ.げる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%82%E3%81%8C%E3%82%8B">あ.がる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%82%E3%81%8C%E3%82%8B">-あ.がる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%82%E3%81%8C%E3%82%8A">あ.がり</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%82%E3%81%8C%E3%82%8A">-あ.がり</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%AE%E3%81%BC%E3%82%8B">のぼ.る</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%AE%E3%81%BC%E3%82%8A">のぼ.り</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%AE%E3%81%BC%E3%81%9B%E3%82%8B">のぼ.せる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%AE%E3%81%BC%E3%81%99">のぼ.す</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%9F%E3%81%A6%E3%81%BE%E3%81%A4%E3%82%8B">たてまつ.る</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%98%E3%82%87%E3%81%86">ジョウ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%97%E3%82%87%E3%81%86">ショウ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8A%20%E3%81%97%E3%82%83%E3%82%93">シャン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%B8%8A%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.11631710951982843<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">6 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E8%A1%8C%20%23kanji">行</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>going, </span>
+        <span>journey, </span>
+        <span>carry out, </span>
+        <span>conduct, </span>
+        <span>act, </span>
+        <span>line, </span>
+        <span>row, </span>
+        <span>bank</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%81%84%E3%81%8F">い.く</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%82%86%E3%81%8F">ゆ.く</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%82%86%E3%81%8D">-ゆ.き</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%82%86%E3%81%8D">-ゆき</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%81%84%E3%81%8D">-い.き</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%81%84%E3%81%8D">-いき</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%81%8A%E3%81%93%E3%81%AA%E3%81%86">おこな.う</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%81%8A%E3%81%93%E3%81%AA%E3%81%86">おこ.なう</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%81%93%E3%81%86">コウ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%81%8E%E3%82%87%E3%81%86">ギョウ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A1%8C%20%E3%81%82%E3%82%93">アン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E8%A1%8C%20%23kanji">Details ▸</a>
+        </div>
+        <a class="more" href="//jisho.org/search/%23kanji%20%23jlpt-n5?page=2">More <span class="accesskey">K</span>anji &gt;</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div><div class="row" id="page_container">
+        <div class="large-12 columns">
+        <div id="main_results">
+        <div id="result_area">
+        </div>
+        <div class="row">
+        <div class="large-12 columns search-secondary_column" id="secondary">
+        <div class="kanji_light_block">
+        <h4>Kanji<span class="result_count"> — 79 found</span></h4>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.13667260368579842<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%9B%9B%20%23kanji">四</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>four</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%9B%9B%20%E3%82%88">よ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%9B%9B%20%E3%82%88%E3%81%A4">よ.つ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%9B%9B%20%E3%82%88%E3%81%A3%E3%81%A4">よっ.つ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%9B%9B%20%E3%82%88%E3%82%93">よん</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%9B%9B%20%E3%81%97">シ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%9B%9B%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.151212242375777<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">9 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%BE%8C%20%23kanji">後</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>behind, </span>
+        <span>back, </span>
+        <span>later</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%BE%8C%20%E3%81%AE%E3%81%A1">のち</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%BE%8C%20%E3%81%86%E3%81%97%E3%82%8D">うし.ろ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%BE%8C%20%E3%81%86%E3%81%97%E3%82%8D">うしろ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%BE%8C%20%E3%81%82%E3%81%A8">あと</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%BE%8C%20%E3%81%8A%E3%81%8F%E3%82%8C%E3%82%8B">おく.れる</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%BE%8C%20%E3%81%94">ゴ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%BE%8C%20%E3%81%93%E3%81%86">コウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%BE%8C%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.15412017011377271<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">8 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E9%87%91%20%23kanji">金</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>gold</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%87%91%20%E3%81%8B%E3%81%AD">かね</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%87%91%20%E3%81%8B%E3%81%AA">かな-</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%87%91%20%E3%81%8C%E3%81%AD">-がね</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%87%91%20%E3%81%8D%E3%82%93">キン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%87%91%20%E3%81%93%E3%82%93">コン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%87%91%20%E3%81%94%E3%82%93">ゴン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E9%87%91%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.15702809785176838<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">9 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%89%8D%20%23kanji">前</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>in front, </span>
+        <span>before</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%89%8D%20%E3%81%BE%E3%81%88">まえ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%89%8D%20%E3%81%BE%E3%81%88">-まえ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%89%8D%20%E3%81%9C%E3%82%93">ゼン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%89%8D%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.1599360255897641<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">2 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%B9%9D%20%23kanji">九</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>nine</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B9%9D%20%E3%81%93%E3%81%93%E3%81%AE">ここの</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B9%9D%20%E3%81%93%E3%81%93%E3%81%AE%E3%81%A4">ここの.つ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B9%9D%20%E3%81%8D%E3%82%85%E3%81%86">キュウ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B9%9D%20%E3%81%8F">ク</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%B9%9D%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.1628439533277598<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">2 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%85%A5%20%23kanji">入</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>enter, </span>
+        <span>insert</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%A5%20%E3%81%84%E3%82%8B">い.る</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%A5%20%E3%81%84%E3%82%8B">-い.る</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%A5%20%E3%81%84%E3%82%8A">-い.り</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%A5%20%E3%81%84%E3%82%8C%E3%82%8B">い.れる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%A5%20%E3%81%84%E3%82%8C">-い.れ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%A5%20%E3%81%AF%E3%81%84%E3%82%8B">はい.る</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%A5%20%E3%81%AB%E3%82%85%E3%81%86">ニュウ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%A5%20%E3%81%98%E3%82%85">ジュ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%85%A5%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.1831994474937298<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">8 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%AD%A6%20%23kanji">学</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>study, </span>
+        <span>learning, </span>
+        <span>science</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%AD%A6%20%E3%81%BE%E3%81%AA%E3%81%B6">まな.ぶ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%AD%A6%20%E3%81%8C%E3%81%8F">ガク</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%AD%A6%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.19192323070771694<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">12 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E9%96%93%20%23kanji">間</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>interval, </span>
+        <span>space</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%96%93%20%E3%81%82%E3%81%84%E3%81%A0">あいだ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%96%93%20%E3%81%BE">ま</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%96%93%20%E3%81%82%E3%81%84">あい</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%96%93%20%E3%81%8B%E3%82%93">カン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%96%93%20%E3%81%91%E3%82%93">ケン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E9%96%93%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.2006470139217041<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%86%86%20%23kanji">円</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>circle, </span>
+        <span>yen, </span>
+        <span>round</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%86%86%20%E3%81%BE%E3%82%8B%E3%81%84">まる.い</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%86%86%20%E3%81%BE%E3%82%8B">まる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%86%86%20%E3%81%BE%E3%81%A9">まど</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%86%86%20%E3%81%BE%E3%81%A9%E3%81%8B">まど.か</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%86%86%20%E3%81%BE%E3%82%8D%E3%82%84%E3%81%8B">まろ.やか</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%86%86%20%E3%81%88%E3%82%93">エン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%86%86%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.20937079713569118<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%AD%90%20%23kanji">子</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>child, </span>
+        <span>sign of the rat, </span>
+        <span>11PM-1AM, </span>
+        <span>first sign of Chinese zodiac</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%AD%90%20%E3%81%93">こ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%AD%90%20%E3%81%93">-こ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%AD%90%20%E3%81%AD">ね</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%AD%90%20%E3%81%97">シ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%AD%90%20%E3%81%99">ス</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%AD%90%20%E3%81%A4">ツ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%AD%90%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.21518665261168263<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">8 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%9D%B1%20%23kanji">東</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>east</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%B1%20%E3%81%B2%E3%81%8C%E3%81%97">ひがし</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%B1%20%E3%81%A8%E3%81%86">トウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%9D%B1%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.2675293518956054<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">2 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%85%AB%20%23kanji">八</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>eight, </span>
+        <span>eight radical (no. 12)</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AB%20%E3%82%84">や</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AB%20%E3%82%84%E3%81%A4">や.つ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AB%20%E3%82%84%E3%81%A3%E3%81%A4">やっ.つ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AB%20%E3%82%88%E3%81%86">よう</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AB%20%E3%81%AF%E3%81%A1">ハチ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AB%20%E3%81%AF%E3%81%A4">ハツ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%85%AB%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.27043727963360115<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%85%AD%20%23kanji">六</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>six</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AD%20%E3%82%80">む</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AD%20%E3%82%80%E3%81%A4">む.つ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AD%20%E3%82%80%E3%81%A3%E3%81%A4">むっ.つ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AD%20%E3%82%80%E3%81%84">むい</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AD%20%E3%82%8D%E3%81%8F">ロク</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%AD%20%E3%82%8A%E3%81%8F">リク</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%85%AD%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.28206899058558393<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%B8%8B%20%23kanji">下</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>below, </span>
+        <span>down, </span>
+        <span>descend, </span>
+        <span>give, </span>
+        <span>low, </span>
+        <span>inferior</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%97%E3%81%9F">した</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%97%E3%82%82">しも</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%82%82%E3%81%A8">もと</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%95%E3%81%92%E3%82%8B">さ.げる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%95%E3%81%8C%E3%82%8B">さ.がる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%8F%E3%81%A0%E3%82%8B">くだ.る</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%8F%E3%81%A0%E3%82%8A">くだ.り</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%8F%E3%81%A0%E3%81%99">くだ.す</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%8F%E3%81%A0%E3%81%99">-くだ.す</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%8F%E3%81%A0%E3%81%95%E3%82%8B">くだ.さる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%8A%E3%82%8D%E3%81%99">お.ろす</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%8A%E3%82%8A%E3%82%8B">お.りる</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%8B">カ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%8B%20%E3%81%92">ゲ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%B8%8B%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.2849769183235797<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%BB%8A%20%23kanji">今</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>now</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BB%8A%20%E3%81%84%E3%81%BE">いま</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BB%8A%20%E3%81%93%E3%82%93">コン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BB%8A%20%E3%81%8D%E3%82%93">キン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%BB%8A%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.3285958343935153<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">6 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%B0%97%20%23kanji">気</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>spirit, </span>
+        <span>mind, </span>
+        <span>air, </span>
+        <span>atmosphere, </span>
+        <span>mood</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%B0%97%20%E3%81%8D">き</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%B0%97%20%E3%81%8D">キ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%B0%97%20%E3%81%91">ケ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%B0%97%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.33150376213151106<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%B0%8F%20%23kanji">小</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>little, </span>
+        <span>small</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B0%8F%20%E3%81%A1%E3%81%84%E3%81%95%E3%81%84">ちい.さい</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B0%8F%20%E3%81%93">こ-</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B0%8F%20%E3%81%8A">お-</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B0%8F%20%E3%81%95">さ-</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B0%8F%20%E3%81%97%E3%82%87%E3%81%86">ショウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%B0%8F%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.33441168986950676<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">2 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%B8%83%20%23kanji">七</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>seven</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%83%20%E3%81%AA%E3%81%AA">なな</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%83%20%E3%81%AA%E3%81%AA%E3%81%A4">なな.つ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%83%20%E3%81%AA%E3%81%AE">なの</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%83%20%E3%81%97%E3%81%A1">シチ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%B8%83%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.37803060593944243<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">10 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E9%AB%98%20%23kanji">高</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>tall, </span>
+        <span>high, </span>
+        <span>expensive</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%AB%98%20%E3%81%9F%E3%81%8B%E3%81%84">たか.い</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%AB%98%20%E3%81%9F%E3%81%8B">たか</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%AB%98%20%E3%81%A0%E3%81%8B">-だか</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%AB%98%20%E3%81%9F%E3%81%8B%E3%81%BE%E3%82%8B">たか.まる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%AB%98%20%E3%81%9F%E3%81%8B%E3%82%81%E3%82%8B">たか.める</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%AB%98%20%E3%81%93%E3%81%86">コウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E9%AB%98%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.3809385336774382<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%B1%B1%20%23kanji">山</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>mountain</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B1%B1%20%E3%82%84%E3%81%BE">やま</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B1%B1%20%E3%81%95%E3%82%93">サン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B1%B1%20%E3%81%9B%E3%82%93">セン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%B1%B1%20%23kanji">Details ▸</a>
+        </div>
+        <a class="more" href="//jisho.org/search/%23kanji%20%23jlpt-n5?page=3">More <span class="accesskey">K</span>anji &gt;</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div><div class="row" id="page_container">
+        <div class="large-12 columns">
+        <div id="main_results">
+        <div id="result_area">
+        </div>
+        <div class="row">
+        <div class="large-12 columns search-secondary_column" id="secondary">
+        <div class="kanji_light_block">
+        <h4>Kanji<span class="result_count"> — 79 found</span></h4>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.4390970884373524<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%A5%B3%20%23kanji">女</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>woman, </span>
+        <span>female</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A5%B3%20%E3%81%8A%E3%82%93%E3%81%AA">おんな</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A5%B3%20%E3%82%81">め</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A5%B3%20%E3%81%98%E3%82%87">ジョ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A5%B3%20%E3%81%AB%E3%82%87">ニョ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A5%B3%20%E3%81%AB%E3%82%87%E3%81%86">ニョウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%A5%B3%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.4710842935553052<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%A4%96%20%23kanji">外</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>outside</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%96%20%E3%81%9D%E3%81%A8">そと</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%96%20%E3%81%BB%E3%81%8B">ほか</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%96%20%E3%81%AF%E3%81%9A%E3%81%99">はず.す</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%96%20%E3%81%AF%E3%81%9A%E3%82%8C%E3%82%8B">はず.れる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%96%20%E3%81%A8">と-</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%96%20%E3%81%8C%E3%81%84">ガイ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%96%20%E3%81%92">ゲ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%A4%96%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.47399222129330093<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">6 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E7%99%BE%20%23kanji">百</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>hundred</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%99%BE%20%E3%82%82%E3%82%82">もも</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%99%BE%20%E3%81%B2%E3%82%83%E3%81%8F">ヒャク</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%99%BE%20%E3%81%B3%E3%82%83%E3%81%8F">ビャク</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E7%99%BE%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.503071498673258<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">6 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%85%88%20%23kanji">先</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>before, </span>
+        <span>ahead, </span>
+        <span>previous, </span>
+        <span>future, </span>
+        <span>precedence</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%88%20%E3%81%95%E3%81%8D">さき</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%88%20%E3%81%BE%E3%81%9A">ま.ず</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%85%88%20%E3%81%9B%E3%82%93">セン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%85%88%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.5147032096252409<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">6 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%90%8D%20%23kanji">名</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>name, </span>
+        <span>noted, </span>
+        <span>distinguished, </span>
+        <span>reputation</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%90%8D%20%E3%81%AA">な</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%90%8D%20%E3%81%AA">-な</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%90%8D%20%E3%82%81%E3%81%84">メイ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%90%8D%20%E3%81%BF%E3%82%87%E3%81%86">ミョウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%90%8D%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.5263349205772236<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%B7%9D%20%23kanji">川</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>stream, </span>
+        <span>river, </span>
+        <span>river or three-stroke river radical (no. 47)</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B7%9D%20%E3%81%8B%E3%82%8F">かわ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B7%9D%20%E3%81%9B%E3%82%93">セン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%B7%9D%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.5670459089091636<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%8D%83%20%23kanji">千</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>thousand</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%83%20%E3%81%A1">ち</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%83%20%E3%81%9B%E3%82%93">セン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%8D%83%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.593217258551125<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">7 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%9D%A5%20%23kanji">来</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>come, </span>
+        <span>due, </span>
+        <span>next, </span>
+        <span>cause, </span>
+        <span>become</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%A5%20%E3%81%8F%E3%82%8B">く.る</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%A5%20%E3%81%8D%E3%81%9F%E3%82%8B">きた.る</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%A5%20%E3%81%8D%E3%81%9F%E3%81%99">きた.す</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%A5%20%E3%81%8D%E3%81%9F%E3%81%99">き.たす</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%A5%20%E3%81%8D%E3%81%9F%E3%82%8B">き.たる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%A5%20%E3%81%8D">き</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%A5%20%E3%81%93">こ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%A5%20%E3%82%89%E3%81%84">ライ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9D%A5%20%E3%81%9F%E3%81%84">タイ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%9D%A5%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.6484678855730436<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%B0%B4%20%23kanji">水</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>water</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%B0%B4%20%E3%81%BF%E3%81%9A">みず</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%B0%B4%20%E3%81%BF%E3%81%9A">みず-</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%B0%B4%20%E3%81%99%E3%81%84">スイ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%B0%B4%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.6979026571189707<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">7 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E7%94%B7%20%23kanji">男</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>male</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%B7%20%E3%81%8A%E3%81%A8%E3%81%93">おとこ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%B7%20%E3%81%8A">お</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%B7%20%E3%81%A0%E3%82%93">ダン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%94%B7%20%E3%81%AA%E3%82%93">ナン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E7%94%B7%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.7793246337828506<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">13 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E8%A9%B1%20%23kanji">話</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>tale, </span>
+        <span>talk</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A9%B1%20%E3%81%AF%E3%81%AA%E3%81%99">はな.す</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A9%B1%20%E3%81%AF%E3%81%AA%E3%81%97">はなし</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A9%B1%20%E3%82%8F">ワ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E8%A9%B1%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.854930754970739<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">10 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%A0%A1%20%23kanji">校</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>exam, </span>
+        <span>school, </span>
+        <span>printing, </span>
+        <span>proof, </span>
+        <span>correction</span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%A0%A1%20%E3%81%93%E3%81%86">コウ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%A0%A1%20%E3%81%8D%E3%82%87%E3%81%86">キョウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%A0%A1%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.8898258878266875<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%8C%97%20%23kanji">北</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>north</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8C%97%20%E3%81%8D%E3%81%9F">きた</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8C%97%20%E3%81%BB%E3%81%8F">ホク</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%8C%97%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.8927338155646833<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%9C%9F%20%23kanji">土</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>soil, </span>
+        <span>earth, </span>
+        <span>ground, </span>
+        <span>Turkey</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%9C%9F%20%E3%81%A4%E3%81%A1">つち</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%9C%9F%20%E3%81%A9">ド</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%9C%9F%20%E3%81%A8">ト</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%9C%9F%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.895641743302679<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%8D%88%20%23kanji">午</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>noon, </span>
+        <span>sign of the horse, </span>
+        <span>11AM-1PM, </span>
+        <span>seventh sign of Chinese zodiac</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%88%20%E3%81%86%E3%81%BE">うま</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%88%20%E3%81%94">ゴ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%8D%88%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.9218130929446403<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%9C%A8%20%23kanji">木</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>tree, </span>
+        <span>wood</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9C%A8%20%E3%81%8D">き</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9C%A8%20%E3%81%93">こ-</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9C%A8%20%E3%81%BC%E3%81%8F">ボク</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9C%A8%20%E3%82%82%E3%81%8F">モク</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%9C%A8%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.9683399367525718<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">7 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E8%BB%8A%20%23kanji">車</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>car</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%BB%8A%20%E3%81%8F%E3%82%8B%E3%81%BE">くるま</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%BB%8A%20%E3%81%97%E3%82%83">シャ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E8%BB%8A%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              0.9828795754425503<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">10 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%9B%B8%20%23kanji">書</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>write</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9B%B8%20%E3%81%8B%E3%81%8F">か.く</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9B%B8%20%E3%81%8C%E3%81%8D">-が.き</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9B%B8%20%E3%81%8C%E3%81%8D">-がき</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%9B%B8%20%E3%81%97%E3%82%87">ショ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%9B%B8%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.3027516266220784<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%8D%8A%20%23kanji">半</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>half, </span>
+        <span>middle, </span>
+        <span>odd number, </span>
+        <span>semi-, </span>
+        <span>part-</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%8A%20%E3%81%AA%E3%81%8B%E3%81%B0">なか.ば</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%8A%20%E3%81%AF%E3%82%93">ハン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%8D%8A%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.4045290974519284<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E7%99%BD%20%23kanji">白</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>white</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%99%BD%20%E3%81%97%E3%82%8D">しろ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%99%BD%20%E3%81%97%E3%82%89">しら-</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%99%BD%20%E3%81%97%E3%82%8D%E3%81%84">しろ.い</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%99%BD%20%E3%81%AF%E3%81%8F">ハク</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%99%BD%20%E3%81%B3%E3%82%83%E3%81%8F">ビャク</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E7%99%BD%20%23kanji">Details ▸</a>
+        </div>
+        <a class="more" href="//jisho.org/search/%23kanji%20%23jlpt-n5?page=4">More <span class="accesskey">K</span>anji &gt;</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div><div class="row" id="page_container">
+        <div class="large-12 columns">
+        <div id="main_results">
+        <div id="result_area">
+        </div>
+        <div class="row">
+        <div class="large-12 columns search-secondary_column" id="secondary">
+        <div class="kanji_light_block">
+        <h4>Kanji<span class="result_count"> — 79 found</span></h4>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.4888590018538042<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%A4%A9%20%23kanji">天</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>heavens, </span>
+        <span>sky, </span>
+        <span>imperial</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%A9%20%E3%81%82%E3%81%BE%E3%81%A4">あまつ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%A9%20%E3%81%82%E3%82%81">あめ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%A9%20%E3%81%82%E3%81%BE">あま-</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%A4%A9%20%E3%81%A6%E3%82%93">テン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%A4%A9%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.5063065682817784<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">6 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E8%A5%BF%20%23kanji">西</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>west, </span>
+        <span>Spain</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A5%BF%20%E3%81%AB%E3%81%97">にし</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A5%BF%20%E3%81%9B%E3%81%84">セイ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A5%BF%20%E3%81%95%E3%81%84">サイ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%A5%BF%20%E3%81%99">ス</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E8%A5%BF%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.558649267565701<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">13 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E9%9B%BB%20%23kanji">電</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>electricity</span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%9B%BB%20%E3%81%A7%E3%82%93">デン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E9%9B%BB%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.669150521609538<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E7%81%AB%20%23kanji">火</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>fire</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%81%AB%20%E3%81%B2">ひ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%81%AB%20%E3%81%B3">-び</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%81%AB%20%E3%81%BB">ほ-</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%81%AB%20%E3%81%8B">カ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E7%81%AB%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.750572498273418<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">14 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E8%AA%9E%20%23kanji">語</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>word, </span>
+        <span>speech, </span>
+        <span>language</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%AA%9E%20%E3%81%8B%E3%81%9F%E3%82%8B">かた.る</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%AA%9E%20%E3%81%8B%E3%81%9F%E3%82%89%E3%81%86">かた.らう</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%AA%9E%20%E3%81%94">ゴ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E8%AA%9E%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.750572498273418<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%8F%B3%20%23kanji">右</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>right</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8F%B3%20%E3%81%BF%E3%81%8E">みぎ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8F%B3%20%E3%81%86">ウ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8F%B3%20%E3%82%86%E3%81%86">ユウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%8F%B3%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.8319944749372976<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%B7%A6%20%23kanji">左</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>left</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B7%A6%20%E3%81%B2%E3%81%A0%E3%82%8A">ひだり</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B7%A6%20%E3%81%95">サ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%B7%A6%20%E3%81%97%E3%82%83">シャ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%B7%A6%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.8552578968412634<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">14 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E8%81%9E%20%23kanji">聞</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>hear, </span>
+        <span>ask, </span>
+        <span>listen</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%81%9E%20%E3%81%8D%E3%81%8F">き.く</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%81%9E%20%E3%81%8D%E3%81%93%E3%81%88%E3%82%8B">き.こえる</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%81%9E%20%E3%81%B6%E3%82%93">ブン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%81%9E%20%E3%82%82%E3%82%93">モン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E8%81%9E%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.8668896077932466<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">6 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%BC%91%20%23kanji">休</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>rest, </span>
+        <span>day off, </span>
+        <span>retire, </span>
+        <span>sleep</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BC%91%20%E3%82%84%E3%81%99%E3%82%80">やす.む</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BC%91%20%E3%82%84%E3%81%99%E3%81%BE%E3%82%8B">やす.まる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BC%91%20%E3%82%84%E3%81%99%E3%82%81%E3%82%8B">やす.める</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BC%91%20%E3%81%8D%E3%82%85%E3%81%86">キュウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%BC%91%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.9076005961251863<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">9 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E9%A3%9F%20%23kanji">食</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>eat, </span>
+        <span>food</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%A3%9F%20%E3%81%8F%E3%81%86">く.う</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%A3%9F%20%E3%81%8F%E3%82%89%E3%81%86">く.らう</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%A3%9F%20%E3%81%9F%E3%81%B9%E3%82%8B">た.べる</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%A3%9F%20%E3%81%AF%E3%82%80">は.む</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%A3%9F%20%E3%81%97%E3%82%87%E3%81%8F">ショク</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%A3%9F%20%E3%81%98%E3%81%8D">ジキ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E9%A3%9F%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.9773908618370832<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">7 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%BD%95%20%23kanji">何</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>what</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BD%95%20%E3%81%AA%E3%81%AB">なに</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BD%95%20%E3%81%AA%E3%82%93">なん</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BD%95%20%E3%81%AA%E3%81%AB">なに-</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BD%95%20%E3%81%AA%E3%82%93">なん-</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%BD%95%20%E3%81%8B">カ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%BD%95%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              1.9832067173130747<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">9 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%8D%97%20%23kanji">南</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>south</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%97%20%E3%81%BF%E3%81%AA%E3%81%BF">みなみ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%97%20%E3%81%AA%E3%82%93">ナン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8D%97%20%E3%81%AA">ナ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%8D%97%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              2.1809458034967832<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">3 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E4%B8%87%20%23kanji">万</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>ten thousand, </span>
+        <span>10,000</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%87%20%E3%82%88%E3%82%8D%E3%81%9A">よろず</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%87%20%E3%81%BE%E3%82%93">マン</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E4%B8%87%20%E3%81%B0%E3%82%93">バン</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E4%B8%87%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              2.5357129875322606<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">6 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%AF%8E%20%23kanji">毎</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>every</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%AF%8E%20%E3%81%94%E3%81%A8">ごと</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%AF%8E%20%E3%81%94%E3%81%A8%E3%81%AB">-ごと.に</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%AF%8E%20%E3%81%BE%E3%81%84">マイ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%AF%8E%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              2.7625313510959253<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">8 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 1.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E9%9B%A8%20%23kanji">雨</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>rain</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%9B%A8%20%E3%81%82%E3%82%81">あめ</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%9B%A8%20%E3%81%82%E3%81%BE">あま-</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%9B%A8%20%E3%81%95%E3%82%81">-さめ</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E9%9B%A8%20%E3%81%86">ウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E9%9B%A8%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              3.31503762131511<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">5 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E6%AF%8D%20%23kanji">母</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>mother</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%AF%8D%20%E3%81%AF%E3%81%AF">はは</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%AF%8D%20%E3%82%82">も</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E6%AF%8D%20%E3%81%BC">ボ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E6%AF%8D%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              3.5941986841626985<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">14 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E8%AA%AD%20%23kanji">読</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>read</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%AA%AD%20%E3%82%88%E3%82%80">よ.む</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%AA%AD%20%E3%82%88%E3%81%BF">-よ.み</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%AA%AD%20%E3%81%A9%E3%81%8F">ドク</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%AA%AD%20%E3%81%A8%E3%81%8F">トク</a>、 </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E8%AA%AD%20%E3%81%A8%E3%81%86">トウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E8%AA%AD%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              3.6174621060666645<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E5%8F%8B%20%23kanji">友</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>friend</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8F%8B%20%E3%81%A8%E3%82%82">とも</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E5%8F%8B%20%E3%82%86%E3%81%86">ユウ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E5%8F%8B%20%23kanji">Details ▸</a>
+        </div>
+        <div class="entry kanji_light clearfix">
+        <div class="kanji_light_content">
+        <div class="debug">
+              3.757042637490459<br/>
+        </div>
+        <div class="info clearfix">
+        <span class="strokes">4 strokes.</span>
+        
+                JLPT N5.
+        
+                Jōyō kanji, taught in grade 2.
+            </div>
+        <div class="literal_block">
+        <span class="character literal japanese_gothic" lang="ja"><a href="//jisho.org/search/%E7%88%B6%20%23kanji">父</a></span>
+        </div>
+        <div class="meanings english sense">
+        <span>father</span>
+        </div>
+        <div class="kun readings">
+        <span class="type">Kun: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%88%B6%20%E3%81%A1%E3%81%A1">ちち</a></span>
+        </div>
+        <div class="on readings">
+        <span class="type">On: </span>
+        <span class="japanese_gothic"><a href="//jisho.org/search/%E7%88%B6%20%E3%81%B5">フ</a></span>
+        </div>
+        </div>
+        <a class="light-details_link" href="//jisho.org/search/%E7%88%B6%20%23kanji">Details ▸</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+    <script type="text/javascript" charset="utf-8">
+    var currentUser = null;
+
+</script>
+
+<script src="https://assets.jisho.org/assets/application-fe07b0b8ade93cbea5bf2f513ab5d59be67f0c111905dbeabfb88aa48c81e88e.js"></script>
+
+  <style type="text/css" media="screen">
+    .debug { display: none; }
+  </style>
+
+
+
+    <script>
+
+  (function() {
+
+   Namespace('Jisho.KeyEvents', {});
+     var body = $(document.body);
+
+     function applyBodyClass(keyEvent, on) {
+       body.toggleClass(getClassForEvent(keyEvent), on !== (keyEvent.type == 'display'));
+     }
+
+     function getClassForEvent(keyEvent) {
+       return (keyEvent.type == 'display' ? 'hide' : 'highlight') + '_' + keyEvent.name;
+     }
+
+     body.keydown(function(e) {
+       var events = Jisho.KeyEvents[e.which];
+       if(events) {
+         events.each(function(keyEvent) {
+           if(keyEvent.active) return;
+           keyEvent.active = true;
+           if(keyEvent.phase == 'toggle') {
+             body.toggleClass(getClassForEvent(keyEvent));
+           } else {
+             applyBodyClass(keyEvent, true);
+           }
+         });
+       }
+     });
+
+     body.keyup(function(e) {
+       var events = Jisho.KeyEvents[e.which];
+       if(events) {
+         events.each(function(keyEvent) {
+           keyEvent.active = false;
+           if(keyEvent.phase !== 'toggle') {
+             applyBodyClass(keyEvent, false);
+           }
+         });
+       }
+     });
+
+
+  })();
+
+</script>
+
+    <div id="loginHelpDialog" class="reveal-modal" data-reveal aria-labelledby="Login" aria-hidden="true" role="dialog">
+  <div class="row">
+    <div class="login_help_dialog-new_user columns small-12 medium-6">
+      <h3>New to Jisho?</h3>
+
+      <a href="javascript:void(0)" class="js-login-help-sign-up">Click here to sign up!</a>
+    </div>
+
+    <div class="login_help_dialog-existing_user columns small-12 medium-6">
+      <h3>Have an account?</h3>
+
+      <p>We recently switched to a new login system. Please enter the email you registered with and follow the instructions.</p>
+
+      <form class="js-login-help-log-in" method="get" accept-charset="utf-8">
+        <p><input type="text" name="email" /></p>
+        <p><input type="submit" value="Log in" class="button"></p>
+      </form>
+    </div>
+  </div>
+
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+  <script>
+    function removeEl(data){
+      data.forEach((item) => item.remove());
+    }
+
+    //remove details link
+    const links = document.querySelectorAll('.light-details_link');
+    const hforEl = document.querySelectorAll('h4');
+    const more = document.querySelectorAll('.more');
+    removeEl(links)
+    removeEl(hforEl)
+    removeEl(more)
+
+  </script>
+  </body>
+</html>
