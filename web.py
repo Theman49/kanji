@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-from functions import search as searchContaining
+from flask import Flask, render_template, request
+from functions import search as searchContaining, definition as definitionContaining
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
@@ -30,6 +30,12 @@ def search(value=None,page=1):
         nextPage.replace_with(elA)
 
     return render_template('search.html', result=str(soup), totalWord=totalWord, search=value)
+
+@app.route("/definition")
+def definition(value=None):
+    query,searchType,x,y = request.args.values()
+    res = definitionContaining(query,searchType,x,y)
+    return render_template('definition.html', result=res, search=query)
 
 @app.errorhandler(500)
 def page_not_found(error):

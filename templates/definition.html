@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet">
+    <style>
+      html {
+        margin: 1rem 2rem;
+        font-family: "Klee One", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+      form {
+        height: 30px;
+        background: grey;
+        /* padding: 10px; */
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        border-radius: 5px;
+        gap: 10px;
+      }
+      form input, form select {
+        font-size: 1rem;
+      }
+      div {
+        font-size: 1.2rem;
+      }
+      #definition-box a {
+        text-decoration: none !important;
+        color: black;
+      }
+
+      .synonymsUnderDictTitle {
+        font-weight: bold;
+        font-size: x-large;
+      }
+      .synonymsUnderDict {
+        margin-top: 1rem;
+      }
+      .synonymsUnderDict a {
+        margin-right: 1rem;
+        padding: .5rem .75rem;
+        border-radius: .5rem;
+        background-color: rgb(224, 224, 224);
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/definition" method="get" name="fh">
+      <input
+        maxlength="2048"
+        type="text"
+        name="query"
+        id="combo_txt"
+        value="{{search|safe}}"
+        class="formBox"
+      />
+      <select name="searchType" class="formSelect">
+        <option value="exact" selected="">と一致する</option>
+        <option value="prefix">で始まる</option>
+        <option value="contains">を含む</option>
+        <option value="suffix">で終わる</option>
+        <option value="text">を解説文に含む</option>
+      </select>
+      <input
+        type="image"
+        src="https://cdn.weblio.jp/e7/img/icons/wRenew/iconWwwScD.png"
+        value="項目を検索"
+        class="formButton"
+      />
+    </form>
+
+    <div class="row" id="definition-box">
+      <h2>{{ search|safe }}</h2>
+      {{ result|safe }}
+    </div>
+  </body>
+</html>

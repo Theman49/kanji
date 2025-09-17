@@ -31,3 +31,17 @@ def search(value, page=1):
 	content = soup.find('div', {'id':'primary'})
 
 	return content
+
+def definition(query, searchType, x, y):
+	genUrl = 'https://www.weblio.jp/content_find?query=' + str(query) + '&searchType=' + str(searchType) + '&x=' + str(x) + '&y=' + str(y)
+	print(genUrl)
+	r = requests.get(genUrl)
+	soup = BeautifulSoup(r.content, 'html.parser')
+	content1 = soup.find('h2', {'class':'midashigo'})
+	result = str(content1.find_next_siblings('div')[0])
+
+	if not result.find('synonymsUnderDictWrp'):
+		content2 = str(soup.find('div', {'class':'synonymsUnderDictWrp'}))
+		result += content2
+
+	return result.replace('。', '。<br/>')
