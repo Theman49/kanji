@@ -12,6 +12,9 @@ def main():
 def kanji(level='n3'):
     return render_template('kanji.html', content=f"data/{level}_all.html", level=level)
 
+@app.route('/search')
+def searchPage():
+    return render_template('search.html', result=None, totalWord=None, search=None)
 @app.route("/search/<value>/page=<page>")
 def search(value=None,page=1):
     res = searchContaining(value,page)
@@ -32,7 +35,9 @@ def search(value=None,page=1):
     return render_template('search.html', result=str(soup), totalWord=totalWord, search=value)
 
 @app.route("/definition")
-def definition(value=None):
+def definition(result=None, search=None):
+    if not request.args.get('query'):
+        return render_template('definition.html', result='', search=search)
     query,searchType,x,y = request.args.values()
     res = definitionContaining(query,searchType,x,y)
     return render_template('definition.html', result=res, search=query)

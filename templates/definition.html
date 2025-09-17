@@ -1,8 +1,11 @@
 <html>
   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap"
+      rel="stylesheet"
+    />
     <style>
       html {
         margin: 1rem 2rem;
@@ -10,7 +13,8 @@
         font-weight: 400;
         font-style: normal;
       }
-      form {
+      form,
+      form div:first-child {
         height: 30px;
         background: grey;
         /* padding: 10px; */
@@ -20,7 +24,8 @@
         border-radius: 5px;
         gap: 10px;
       }
-      form input, form select {
+      form input,
+      form select {
         font-size: 1rem;
       }
       div {
@@ -40,35 +45,55 @@
       }
       .synonymsUnderDict a {
         margin-right: 1rem;
-        padding: .5rem .75rem;
-        border-radius: .5rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
         background-color: rgb(224, 224, 224);
       }
     </style>
   </head>
   <body>
-    <form action="/definition" method="get" name="fh">
-      <input
-        maxlength="2048"
-        type="text"
-        name="query"
-        id="combo_txt"
-        value="{{search|safe}}"
-        class="formBox"
-      />
-      <select name="searchType" class="formSelect">
-        <option value="exact" selected="">と一致する</option>
-        <option value="prefix">で始まる</option>
-        <option value="contains">を含む</option>
-        <option value="suffix">で終わる</option>
-        <option value="text">を解説文に含む</option>
-      </select>
-      <input
-        type="image"
-        src="https://cdn.weblio.jp/e7/img/icons/wRenew/iconWwwScD.png"
-        value="項目を検索"
-        class="formButton"
-      />
+    <form
+      action="/definition"
+      method="get"
+      name="fh"
+      style="display: flex; justify-content: space-between"
+    >
+      <div>
+        <input
+          maxlength="2048"
+          type="text"
+          name="query"
+          id="combo_txt"
+          value="{{search|safe}}"
+          class="formBox"
+        />
+        <select name="searchType" class="formSelect">
+          <option value="exact" selected="">と一致する</option>
+          <option value="prefix">で始まる</option>
+          <option value="contains">を含む</option>
+          <option value="suffix">で終わる</option>
+          <option value="text">を解説文に含む</option>
+        </select>
+        <input
+          type="image"
+          src="https://cdn.weblio.jp/e7/img/icons/wRenew/iconWwwScD.png"
+          value="項目を検索"
+          class="formButton"
+        />
+      </div>
+      <div>
+        <a
+          href="/"
+          style="
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 2px 4px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+          "
+          >&larr;HOME</a
+        >
+      </div>
     </form>
 
     <div class="row" id="definition-box">
