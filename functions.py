@@ -34,7 +34,7 @@ def search(value, page=1):
 
 def definition(query, searchType, x, y):
 	genUrl = 'https://www.weblio.jp/content_find?query=' + str(query) + '&searchType=' + str(searchType) + '&x=' + str(x) + '&y=' + str(y)
-	print(genUrl)
+	
 	r = requests.get(genUrl)
 	soup = BeautifulSoup(r.content, 'html.parser')
 	content1 = soup.find('h2', {'class':'midashigo'})
