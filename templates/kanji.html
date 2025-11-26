@@ -7,21 +7,6 @@
     <meta name="theme-color" content="#47DB27">
     <link href="/opensearch.xml" rel='search' title='Jisho' type='application/opensearchdescription+xml'>
   
-<script>
-
-  Modernizr.addTest('speech', function(){
-    return Modernizr.prefixed('speechRecognition', window);
-  });
-
-  Modernizr.addTest('AudioContext', function(){
-    return Modernizr.prefixed('AudioContext', window);
-  });
-
-  Modernizr.addTest('getUserMedia', function(){
-    return Modernizr.prefixed('getUserMedia', navigator);
-  });
-
-</script>
 
     <link rel="stylesheet" media="screen" href="https://assets.jisho.org/assets/application-61d8e80944056be2e8c772e3d3b243767cc3550ca5b7da4d62ba58a5604fc3c3.css" />
     <meta name="csrf-param" content="authenticity_token" />
@@ -70,7 +55,6 @@
 
 </script>
 
-<script src="https://assets.jisho.org/assets/application-fe07b0b8ade93cbea5bf2f513ab5d59be67f0c111905dbeabfb88aa48c81e88e.js"></script>
 
   <style type="text/css" media="screen">
     .debug { display: none; }
@@ -78,52 +62,6 @@
 
 
 
-    <script>
-
-  (function() {
-
-   Namespace('Jisho.KeyEvents', {});
-     var body = $(document.body);
-
-     function applyBodyClass(keyEvent, on) {
-       body.toggleClass(getClassForEvent(keyEvent), on !== (keyEvent.type == 'display'));
-     }
-
-     function getClassForEvent(keyEvent) {
-       return (keyEvent.type == 'display' ? 'hide' : 'highlight') + '_' + keyEvent.name;
-     }
-
-     body.keydown(function(e) {
-       var events = Jisho.KeyEvents[e.which];
-       if(events) {
-         events.each(function(keyEvent) {
-           if(keyEvent.active) return;
-           keyEvent.active = true;
-           if(keyEvent.phase == 'toggle') {
-             body.toggleClass(getClassForEvent(keyEvent));
-           } else {
-             applyBodyClass(keyEvent, true);
-           }
-         });
-       }
-     });
-
-     body.keyup(function(e) {
-       var events = Jisho.KeyEvents[e.which];
-       if(events) {
-         events.each(function(keyEvent) {
-           keyEvent.active = false;
-           if(keyEvent.phase !== 'toggle') {
-             applyBodyClass(keyEvent, false);
-           }
-         });
-       }
-     });
-
-
-  })();
-
-</script>
 
   <script>
     function toggleBlur(e){
@@ -144,7 +82,7 @@
 
     function searchContaining(){
         const els = document.querySelectorAll('.entry.kanji_light.clearfix')
-        console.log("ELS", els)
+        //console.log("ELS", els)
         els.forEach((item) => {
             item.addEventListener('click', function(e) {
                 const content = e.target.querySelector('.literal_block').innerText
@@ -163,5 +101,10 @@
     removeEl(more)
 
   </script>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    <script>
+      searchFocus('search')
+    </script>
+
   </body>
 </html>
