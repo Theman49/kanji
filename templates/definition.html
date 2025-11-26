@@ -64,8 +64,8 @@
           type="text"
           name="query"
           id="combo_txt"
-          value="{{search|safe}}"
           class="formBox"
+          placeholder="type command + /"
         />
         <select name="searchType" class="formSelect">
           <option value="exact" selected="">と一致する</option>
@@ -100,5 +100,10 @@
       <h2>{{ search|safe }}</h2>
       {{ result|safe }}
     </div>
+
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    <script>
+      searchFocus('query')
+    </script>
   </body>
 </html>

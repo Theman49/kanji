@@ -50,8 +50,8 @@
           type="text"
           name="query"
           id="combo_txt"
-          value="{{search|safe}}"
           class="formBox"
+          placeholder="type command + /"
         />
       </div>
       <div>
@@ -70,5 +70,10 @@
     </form>
 
     <iframe src="{{result | safe}}""></iframe>
+
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    <script>
+      searchFocus('query')
+    </script>
   </body>
 </html>
